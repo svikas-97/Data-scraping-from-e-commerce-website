@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[27]:
-
 
 from selenium import webdriver
 import time
@@ -51,7 +46,7 @@ for url in urls.split("\n"):
             l_name.append(name)
         except:
             l_name.append('-')
-    #         name = "none"
+  
         try:
             productcode = driver.find_element(by=By.CSS_SELECTOR,
                                                 value="div.productCode").text
@@ -64,7 +59,7 @@ for url in urls.split("\n"):
             l_price.append(price)
         except:
             l_price.append('-')
-    #         price = "none"
+
         try:
             sku = driver.find_element(
                 by=By.CSS_SELECTOR,
@@ -72,7 +67,7 @@ for url in urls.split("\n"):
             l_sku.append(sku.split(':')[1])
         except:
             l_sku.append('-')
-    #         sku = "none"
+
         try:
             barcode = driver.find_element(
                 by=By.CSS_SELECTOR,
@@ -80,7 +75,7 @@ for url in urls.split("\n"):
             l_barcode.append(barcode.split(':')[1])
         except:
             l_barcode.append('-')
-    #         barcode = "none"
+ 
         try:
             supp = driver.find_element(by=By.CSS_SELECTOR,
                                         value="p:nth-of-type(3)").text
@@ -89,14 +84,14 @@ for url in urls.split("\n"):
         except:
             l_supp.append('-')
             print('-')
-    #         supp = "none"
+   
         try:
             image = driver.find_element(by=By.CSS_SELECTOR,
                                         value="img#both").get_attribute("src")
             l_image.append(image)
         except:
             l_image.append('-')
-    #         image = "none"
+ 
         try:
             if driver.find_elements(by=By.CSS_SELECTOR,value="tr:nth-of-type(n+3)"):
                 quantity_price = ''
@@ -128,7 +123,7 @@ for url in urls.split("\n"):
                     l_name.append(name)
                 except:
                     l_name.append('-')
-            #         name = "none"
+          
                 try:
                     productcode = driver.find_element(by=By.CSS_SELECTOR,
                                                         value="div.productCode").text
@@ -141,7 +136,7 @@ for url in urls.split("\n"):
                     l_price.append(price)
                 except:
                     l_price.append('-')
-            #         price = "none"
+         
                 try:
                     sku = driver.find_element(
                         by=By.CSS_SELECTOR,
@@ -149,7 +144,7 @@ for url in urls.split("\n"):
                     l_sku.append(sku.split(':')[1])
                 except:
                     l_sku.append('-')
-            #         sku = "none"
+         
                 try:
                     barcode = driver.find_element(
                         by=By.CSS_SELECTOR,
@@ -157,7 +152,7 @@ for url in urls.split("\n"):
                     l_barcode.append(barcode.split(':')[1])
                 except:
                     l_barcode.append('-')
-            #         barcode = "none"
+          
                 try:
                     supp = driver.find_element(by=By.CSS_SELECTOR,
                                                 value="p:nth-of-type(3)").text
@@ -165,7 +160,7 @@ for url in urls.split("\n"):
                 except:
                     l_supp.append('-')
                     print('2nd try: -')
-            #         supp = "none"
+                    
                 try:
                     image = driver.find_element(by=By.CSS_SELECTOR,
                                                 value="img#both").get_attribute("src")
@@ -213,24 +208,3 @@ data = {
     }
 df = pd.DataFrame(data)
 df.to_excel("efgwarehouse outputs.xlsx", index=False)
-
-
-# In[24]:
-
-
-df
-
-
-# In[22]:
-
-
-print(len(l_barcode))
-print(len(l_image))
-print(len(l_name))
-print(len(l_price))
-print(len(l_product_code))
-print(len(l_quantity))
-print(len(l_quantity_price))
-print(len(l_sku))
-print(len(l_supp))
-
